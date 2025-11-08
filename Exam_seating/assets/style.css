@@ -1,0 +1,144 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-blue: #001f3f; /* Navy Blue */
+    --secondary-blue: #007bff;
+    --light-bg: #f4f7f9;
+    --sidebar-width: 250px;
+    --admin-accent: #dc3545; /* Red */
+    --faculty-accent: #ffc107; /* Yellow */
+    --student-accent: #28a745; /* Green */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light-bg);
+    margin: 0;
+    color: #333;
+}
+
+/* --- Main Content Layout (Used by all dashboards) --- */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ffffff30;
+}
+.sidebar-header h3 { margin: 0; }
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar-menu li a {
+    display: block;
+    padding: 15px 20px;
+    color: #ccc;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.sidebar-logout {
+    padding: 20px;
+}
+
+.logout-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+}
+
+.header {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #ddd;
+}
+.header h1 { margin: 0; font-size: 1.5em; }
+
+.content-wrapper {
+    padding: 30px;
+}
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 25px;
+}
+.card h2 { margin-top: 0; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #f2f2f2; }
+
+
+/* --- ADMIN DASHBOARD STYLES --- */
+.admin-dashboard .sidebar { background-color: var(--primary-blue); }
+.admin-dashboard .sidebar-menu li a:hover { border-left-color: var(--admin-accent); background-color: #ffffff1a; color: white; }
+.admin-dashboard .logout-button { background-color: var(--admin-accent); }
+.admin-dashboard .logout-button:hover { background-color: #c82333; }
+.admin-dashboard .header h1 { color: var(--primary-blue); }
+
+.card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.dashboard-card { background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); overflow: hidden; }
+.dashboard-card .card-header { background-color: var(--primary-blue); color: white; padding: 15px 20px; }
+.dashboard-card .card-header h4 { margin: 0; font-size: 1.1em; }
+.dashboard-card .card-body { padding: 20px; font-size: 1em; color: #555; }
+
+
+/* --- FACULTY DASHBOARD STYLES --- */
+.faculty-dashboard .sidebar { background-color: #343a40; } /* Dark Gray */
+.faculty-dashboard .sidebar-menu li a:hover { border-left-color: var(--faculty-accent); background-color: #ffffff1a; color: white; }
+.faculty-dashboard .logout-button { background-color: var(--secondary-blue); }
+.faculty-dashboard .logout-button:hover { background-color: #0056b3; }
+.faculty-dashboard .header h1 { color: #343a40; }
+.faculty-dashboard .card h2 { color: #343a40; border-bottom: 2px solid var(--faculty-accent); padding-bottom: 10px; }
+
+
+/* --- STUDENT DASHBOARD STYLES --- */
+.student-dashboard .sidebar { background-color: #17a2b8; } /* Teal */
+.student-dashboard .sidebar-menu li a:hover { border-left-color: #fff; background-color: #ffffff2a; color: white; }
+.student-dashboard .logout-button { background-color: var(--secondary-blue); }
+.student-dashboard .logout-button:hover { background-color: #0056b3; }
+.student-dashboard .header h1 { color: #17a2b8; }
+.student-dashboard .card h2 { color: #17a2b8; border-bottom: 2px solid #17a2b8; padding-bottom: 10px; }
+
+
+/* --- LOGIN PAGE STYLES --- */
+.login-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.login-card { background-color: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px; box-sizing: border-box; }
+.login-card h2 { text-align: center; color: var(--primary-blue); font-size: 2em; margin-top: 0; margin-bottom: 30px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+.form-group input[type="text"], .form-group input[type="password"] { width: 100%; padding: 12px 15px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 1em; }
+.login-button { width: 100%; padding: 15px; border: none; border-radius: 8px; background-color: #28a745; color: white; font-size: 1.1em; font-weight: bold; cursor: pointer; }
+.back-link { display: block; text-align: center; margin-top: 20px; color: var(--secondary-blue); text-decoration: none; }
+.portal-options { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+.portal-button { padding: 15px; text-decoration: none; text-align: center; border-radius: 8px; color: white; background-color: var(--secondary-blue); }
+.error-message { color: #d9534f; background-color: #f2dede; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
